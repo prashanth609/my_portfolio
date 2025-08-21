@@ -15,6 +15,21 @@
 
         <!--=============== CSS ===============-->
         <link rel="stylesheet" href="assets/css/styles.css">
+<script>
+document.getElementById('contact-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+    .then(function () {
+        document.getElementById('contact-message').textContent = "Message sent successfully!";
+    }, function (error) {
+        document.getElementById('contact-message').textContent = "Failed to send message. Try again.";
+        console.error('FAILED...', error);
+    });
+
+    this.reset(); // Optional: Reset form after submission
+});
+</script>
 
         <title>Prashanth - Portfolio</title>
     </head>
@@ -165,7 +180,7 @@
                                 </h3>
 
                                 <p class="home__info-number">
-                                    05+
+                                    06+
                                 </p>
                             </div>
 
@@ -175,7 +190,7 @@
                                 </h3>
 
                                 <p class="home__info-number">
-                                    3+
+                                    2+
                                 </p>
                             </div>
 
@@ -829,7 +844,7 @@
                         </div>
                     </div>
 
-                    <div class="contact__content">
+                    <div class="contact__content" id="contact-form">
                         <h3 class="contact__title">
                             <i class="ri-send-plane-line"></i> Write me your project
                         </h3>
